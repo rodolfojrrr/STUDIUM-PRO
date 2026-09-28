@@ -436,6 +436,8 @@ class RichSummaryDocument {
     required TextStyle baseStyle,
     required Color accentColor,
   }) {
+    final lightPage =
+        (baseStyle.color ?? Colors.white).computeLuminance() < .5;
     final decorations = <TextDecoration>[
       if (value.underline) TextDecoration.underline,
       if (value.strikeThrough) TextDecoration.lineThrough,
@@ -449,9 +451,11 @@ class RichSummaryDocument {
           ? 'Consolas'
           : baseStyle.fontFamily,
       backgroundColor: value.codeBlock
-          ? const Color(0xFF102A46)
+          ? (lightPage ? const Color(0xFFE9EEF6) : const Color(0xFF102A46))
           : value.highlight
-              ? accentColor.withValues(alpha: .24)
+              ? (lightPage
+                  ? const Color(0xFFFFE8A3)
+                  : accentColor.withValues(alpha: .24))
               : null,
       letterSpacing: value.codeBlock ? .15 : baseStyle.letterSpacing,
       decoration: decorations.isEmpty
@@ -788,14 +792,18 @@ class RichSummaryController extends TextEditingController {
     required bool withComposing,
   }) {
     final base = (style ?? const TextStyle()).copyWith(
-      color: Colors.white,
+      color: const Color(0xFF202B3A),
       fontSize: 16,
       height: _lineHeight,
       decoration: TextDecoration.none,
     );
     return document.toTextSpan(
       baseStyle: base,
-      accentColor: Theme.of(context).colorScheme.primary,
+      accentColor: Color.lerp(
+        Theme.of(context).colorScheme.primary,
+        Colors.black,
+        .38,
+      )!,
       embedBuilder: _embedBuilder,
     );
   }

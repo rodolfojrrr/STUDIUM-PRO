@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.9.0 PRO
+
+- Bloco de notas no menu e no painel inicial, com busca, notas fixadas, autosave e lixeira.
+- Notas usam a tabela de entidades existente; formato `.mra`, conta local e sincronização permanecem compatíveis.
+- Folha dos resumos clara, texto escuro e campos sem preenchimento escuro herdado do tema.
+- Imagens dentro do texto reutilizam o mesmo provedor e permanecem visíveis durante a digitação.
+- BAT de envio corrigido para o repositório `rodolfojrrr/STUDIUM-PRO`.
+- Build de APK no GitHub interrompido se a assinatura fixa não estiver configurada, evitando trocar a chave de uma instalação existente.
+- Versão Android e Windows elevada para `5.9.0+61`, sem mudança de `applicationId`, assinatura ou caminho de dados.
+- Consulte `00_ATUALIZACAO_V5.9_PRO.txt` antes de instalar sobre uma versão anterior.
+
 ## 5.8.1 PRO
 
 - Corrigido o caminho do banco no Windows após a troca visual de Smart Routine SI para Studium SI.

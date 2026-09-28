@@ -1466,7 +1466,7 @@ class _SummaryEditorCanvas extends StatelessWidget {
           Expanded(
             child: ColoredBox(
               key: const Key('summary-a4-workspace'),
-              color: const Color(0xFF030D19),
+              color: const Color(0xFFE4E9F0),
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   final compact = constraints.maxWidth < 620;
@@ -1501,10 +1501,10 @@ class _SummaryEditorCanvas extends StatelessWidget {
                       height: pageHeight,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                          color: const Color(0xFF0A1D32),
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
-                            color: AppColors.primary.withValues(alpha: .6),
+                            color: const Color(0xFFD5DDE8),
                           ),
                           boxShadow: <BoxShadow>[
                             BoxShadow(
@@ -1586,19 +1586,20 @@ class _SummaryEditorCanvas extends StatelessWidget {
                                     forceStrutHeight: false,
                                   ),
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: const Color(0xFF202B3A),
                                     fontSize: 16,
                                     height: controller.lineHeight,
                                     decoration: TextDecoration.none,
                                   ),
-                                  cursorColor: AppColors.primaryLight,
+                                  cursorColor: const Color(0xFF2459A5),
                                   scrollPadding: const EdgeInsets.all(88),
                                   clipBehavior: Clip.hardEdge,
                                   decoration: InputDecoration(
+                                    filled: false,
                                     hintText:
                                         'Comece pelo conceito principal. Use títulos, listas, destaques, exemplos e observações…',
                                     hintStyle: TextStyle(
-                                      color: AppColors.textMuted,
+                                      color: const Color(0xFF738094),
                                       fontSize: 16,
                                       height: controller.lineHeight,
                                     ),

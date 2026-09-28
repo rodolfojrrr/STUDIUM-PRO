@@ -136,7 +136,7 @@ class _AcademicDashboardScreenState extends State<AcademicDashboardScreen> {
           goals: todayGoals,
           tasks: openKanban,
           onOpenGoals: () => widget.onOpenSection(3),
-          onOpenKanban: () => widget.onOpenSection(5),
+          onOpenKanban: () => widget.onOpenSection(6),
         ),
         const SizedBox(height: 24),
         AcademicSectionTitle(
@@ -217,7 +217,7 @@ class _AcademicDashboardScreenState extends State<AcademicDashboardScreen> {
           title: 'Próximas avaliações',
           subtitle: 'Provas, trabalhos, projetos e apresentações.',
           trailing: TextButton(
-            onPressed: () => widget.onOpenSection(7),
+            onPressed: () => widget.onOpenSection(8),
             child: const Text('Ver agenda'),
           ),
         ),
@@ -274,40 +274,38 @@ class _AcademicDashboardScreenState extends State<AcademicDashboardScreen> {
                 onTap: () => widget.onOpenSection(4),
               ),
               AcademicActionCard(
+                icon: Icons.sticky_note_2_outlined,
+                color: AppColors.orange,
+                title: 'Bloco de notas',
+                subtitle: 'Ideias rápidas com salvamento automático.',
+                onTap: () => widget.onOpenSection(5),
+              ),
+              AcademicActionCard(
                 icon: Icons.quiz_outlined,
                 color: AppColors.green,
                 title: 'Treinar com simulados',
                 subtitle: 'Questões filtradas por matéria e conteúdo.',
-                onTap: () => widget.onOpenSection(6),
+                onTap: () => widget.onOpenSection(7),
               ),
               AcademicActionCard(
                 icon: Icons.terminal_rounded,
                 color: AppColors.cyan,
                 title: 'Abrir IDE acadêmica',
                 subtitle: 'Projetos de código ligados às matérias.',
-                onTap: () => widget.onOpenSection(8),
+                onTap: () => widget.onOpenSection(9),
               ),
             ];
-            if (constraints.maxWidth >= 960) {
-              return Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(child: actions[0]),
-                  const SizedBox(width: 13),
-                  Expanded(child: actions[1]),
-                  const SizedBox(width: 13),
-                  Expanded(child: actions[2]),
-                ],
-              );
-            }
-            return Column(
-              children: <Widget>[
-                actions[0],
-                const SizedBox(height: 12),
-                actions[1],
-                const SizedBox(height: 12),
-                actions[2],
-              ],
+            return Wrap(
+              spacing: 13,
+              runSpacing: 13,
+              children: actions
+                  .map((action) => SizedBox(
+                        width: constraints.maxWidth >= 960
+                            ? (constraints.maxWidth - 39) / 4
+                            : constraints.maxWidth,
+                        child: action,
+                      ))
+                  .toList(),
             );
           },
         ),

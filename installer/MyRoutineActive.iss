@@ -1,5 +1,5 @@
 #define MyAppName "Studium SI"
-#define MyAppVersion "5.8.1"
+#define MyAppVersion "5.9.0"
 #define MyAppPublisher "Rodolfo Junior"
 #define MyAppExeName "my_routine_active.exe"
 

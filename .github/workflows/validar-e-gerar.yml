@@ -81,13 +81,12 @@ jobs:
           for value in "${values[@]}"; do
             if [ -n "$value" ]; then filled=$((filled + 1)); fi
           done
-          if [ "$filled" -ne 0 ] && [ "$filled" -ne 4 ]; then
-            echo 'ERRO: configure os quatro Secrets MRA_* ou deixe todos vazios.'
+          if [ "$filled" -ne 4 ]; then
+            echo 'ERRO: configure os quatro Secrets MRA_* com a assinatura do APK instalado antes de gerar uma atualização.'
             exit 1
           fi
 
       - name: Preparar assinatura Android fixa
-        if: ${{ env.MRA_KEYSTORE_B64 != '' }}
         shell: bash
         run: echo "$MRA_KEYSTORE_B64" | base64 --decode > android/app/mra-release.jks
 

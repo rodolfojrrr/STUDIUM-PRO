@@ -16,6 +16,7 @@ class EntityTypes {
   static const classSession = 'class_session';
   static const exam = 'exam';
   static const studyNote = 'study_note';
+  static const quickNote = 'quick_note';
   static const flashcard = 'flashcard';
   static const workoutPlan = 'workout_plan';
   static const exercise = 'exercise';

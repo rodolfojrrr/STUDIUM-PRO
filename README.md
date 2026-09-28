@@ -1,11 +1,16 @@
 # Studium SI
 
-**Versão 5.8.1 PRO — Recuperação automática do banco Windows**
+**Versão 5.9.0 PRO — Editor claro e bloco de notas**
 
 Aplicativo Flutter nativo para Android e Windows. Foi pensado para a graduação em **Sistemas de Informação**, mas também organiza cursos livres, trilhas, certificações e estudos pessoais. Não há WebView, nuvem, analytics ou login externo: banco, imagens, projetos e credenciais ficam somente nos aparelhos do usuário.
 
 ## O que há nesta versão
 
+- bloco de notas com busca, fixação, salvamento automático e lixeira; as notas seguem no `.mra` e no Wi-Fi;
+- editor de resumos com folha branca e texto escuro para leitura confortável;
+- imagens incorporadas mantêm o mesmo provedor em memória durante a digitação, evitando recarregamentos visíveis;
+- painel inicial com acesso rápido ao bloco de notas e menu de estudos reorganizado;
+- `07_SUBIR_GITHUB.bat` aponta para `rodolfojrrr/STUDIUM-PRO`;
 - correção urgente: o Windows volta a localizar automaticamente o banco e os backups da instalação Smart Routine SI;
 - nome visual **Studium SI** preservado sem usar a marca nova como parte do caminho dos dados;
 - seletor de armazenamento permanente para impedir que futuras renomeações escondam o banco novamente;
@@ -151,7 +156,7 @@ No Android, os projetos podem ser criados, editados e sincronizados. No Windows,
 4. No GitHub, abra **Actions → Validar e gerar aplicativos**.
 5. Baixe `Studium-SI-Android` e `Studium-SI-Windows`.
 
-O workflow executa análise estática, 71 testes, auditoria de arquivos pessoais e gera o APK, o Windows portátil e o instalador `Setup.exe`.
+O workflow executa análise estática, testes automatizados, auditoria de arquivos pessoais e gera o APK, o Windows portátil e o instalador `Setup.exe`.
 
 ## BATs incluídos
 

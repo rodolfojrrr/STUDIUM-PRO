@@ -16,6 +16,7 @@ import 'academic_summaries_screen.dart';
 import 'code_workspace_screen.dart';
 import 'daily_goals_screen.dart';
 import 'pdf_tools_screen.dart';
+import 'quick_notes_screen.dart';
 import 'recycle_bin_screen.dart';
 import 'settings_screen.dart';
 import 'studies_screen.dart';
@@ -80,6 +81,12 @@ class _AcademicShellScreenState extends State<AcademicShellScreen> {
       title: 'Resumos',
       icon: Icons.description_outlined,
       selectedIcon: Icons.description,
+    ),
+    _AcademicDestination(
+      label: 'Bloco de notas',
+      title: 'Bloco de notas',
+      icon: Icons.sticky_note_2_outlined,
+      selectedIcon: Icons.sticky_note_2,
     ),
     _AcademicDestination(
       label: 'Kanban',
@@ -187,6 +194,7 @@ class _AcademicShellScreenState extends State<AcademicShellScreen> {
       AcademicCoursesScreen(store: widget.store),
       DailyGoalsScreen(store: widget.store, timer: studyTimer),
       AcademicSummariesScreen(store: widget.store),
+      QuickNotesScreen(store: widget.store),
       StudyKanbanScreen(store: widget.store),
       AcademicSimulationsScreen(store: widget.store),
       AcademicAssessmentsScreen(store: widget.store),

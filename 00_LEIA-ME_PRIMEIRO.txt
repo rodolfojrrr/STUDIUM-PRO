@@ -1,15 +1,22 @@
-STUDIUM SI — V5.8.1 PRO RECUPERAÇÃO DO BANCO WINDOWS
-=====================================================
+STUDIUM SI — V5.9.0 PRO NOTAS E EDITOR
+=====================================
 
 Esta é a atualização completa do aplicativo acadêmico para Android e Windows.
 Ela funciona offline, não abre site, não usa nuvem e não envia seus dados.
+
+NOVIDADES DA V5.9.0
+- Bloco de notas com salvamento automático, busca, fixação e lixeira.
+- Editor de resumos com folha branca e imagens estáveis durante a digitação.
+- O banco e o formato de backup continuam compatíveis com a V5.8.1.
+- O BAT de envio agora usa o repositório STUDIUM-PRO indicado pelo autor.
+- Antes da instalação, leia 00_ATUALIZACAO_V5.9_PRO.txt.
 
 CORREÇÃO URGENTE DA V5.8.1
 - A primeira V5.8 mudou sem querer o diretório-base do Windows ao trocar o nome
   interno do produto. O banco antigo não foi apagado; ficou na pasta anterior.
 - Esta revisão volta automaticamente para a base da instalação Smart Routine SI.
 - O nome visível continua Studium SI no aplicativo, instalador e atalhos.
-- Não desinstale nem apague pastas. Instale a V5.8.1 por cima da V5.8.
+- Não desinstale nem apague pastas. A V5.9.0 inclui esta correção.
 - Antes de atualizar, copie a pasta antiga MyRoutineActive para outro local por
   segurança. Leia 00_RECUPERAR_BANCO_WINDOWS_V5.8.1.txt.
 
@@ -136,7 +143,7 @@ PARA ENVIAR AO GITHUB
 5. Baixe Studium-SI-Android e Studium-SI-Windows.
 
 REPOSITÓRIO CONFIGURADO
-https://github.com/rodolfojrrr/MY-ROUTINE-ACTIVE.git
+https://github.com/rodolfojrrr/STUDIUM-PRO.git
 
 LEIA TAMBÉM
 - 00_ATUALIZACAO_V5.8_STUDIUM_SI.txt

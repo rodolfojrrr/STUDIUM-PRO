@@ -206,6 +206,8 @@ void main() {
       find.byKey(const ValueKey<String>('summary-body-field')),
     );
     expect(field.clipBehavior, Clip.hardEdge);
+    expect(field.style?.color, const Color(0xFF202B3A));
+    expect(field.decoration?.filled, isFalse);
     expect(
       field.decoration?.contentPadding,
       const EdgeInsets.fromLTRB(52, 46, 52, 88),

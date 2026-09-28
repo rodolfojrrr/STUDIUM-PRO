@@ -1,5 +1,5 @@
+import 'dart:collection';
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:re_highlight/languages/bash.dart';
@@ -135,24 +135,26 @@ class _InlineImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Uint8List? bytes;
-    try {
-      bytes = base64Decode(embed.base64);
-    } catch (_) {}
+    final provider = SummaryInlineImageCache.providerFor(embed);
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: const Color(0xFF071524),
+        color: const Color(0xFFF4F6F9),
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppColors.primary.withValues(alpha: .58)),
+        border: Border.all(color: const Color(0xFFD5DDE8)),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(13),
         child: Stack(
           children: <Widget>[
             Positioned.fill(
-              child: bytes == null || bytes.isEmpty
+              child: provider == null
                   ? const Center(child: Icon(Icons.broken_image_outlined))
-                  : Image.memory(bytes, fit: BoxFit.contain),
+                  : Image(
+                      image: provider,
+                      fit: BoxFit.contain,
+                      gaplessPlayback: true,
+                      filterQuality: FilterQuality.medium,
+                    ),
             ),
             if (embed.caption.isNotEmpty)
               Positioned(
@@ -189,6 +191,35 @@ class _InlineImage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// Keeps the same image provider while the editor rebuilds for each keystroke.
+/// A new MemoryImage on every build makes Flutter briefly show an empty frame.
+class SummaryInlineImageCache {
+  SummaryInlineImageCache._();
+
+  static final LinkedHashMap<String, (String, MemoryImage)> _images =
+      LinkedHashMap<String, (String, MemoryImage)>();
+  static const int _maxImages = 8;
+
+  static MemoryImage? providerFor(SummaryEmbed embed) {
+    if (embed.base64.isEmpty) return null;
+    final cached = _images.remove(embed.id);
+    if (cached != null && cached.$1 == embed.base64) {
+      _images[embed.id] = cached;
+      return cached.$2;
+    }
+    try {
+      final bytes = base64Decode(embed.base64);
+      if (bytes.isEmpty) return null;
+      final provider = MemoryImage(bytes);
+      _images[embed.id] = (embed.base64, provider);
+      if (_images.length > _maxImages) _images.remove(_images.keys.first);
+      return provider;
+    } on FormatException {
+      return null;
+    }
   }
 }
 

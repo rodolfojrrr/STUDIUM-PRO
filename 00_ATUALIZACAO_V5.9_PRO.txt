@@ -1,0 +1,33 @@
+STUDIUM SI V5.9.0 — BLOCO DE NOTAS E EDITOR CLARO
+===================================================
+
+ANTES DE INSTALAR
+1. Exporte um backup .mra em Configurações da versão já instalada.
+2. No Windows, feche o app e copie a pasta MyRoutineActive inteira para outro
+   local. Veja os dois caminhos em 00_RECUPERAR_BANCO_WINDOWS_V5.8.1.txt.
+3. No Android, use o mesmo identificador e a MESMA chave de assinatura do APK
+   instalado. Se o celular pedir para desinstalar, pare: não apague os dados.
+   O GitHub Actions agora interrompe o APK se os quatro Secrets MRA_* não
+   estiverem configurados. Não gere uma chave nova para substituir uma antiga.
+   O BAT de compilação local também interrompe sem a assinatura configurada.
+4. Instale a atualização por cima e confira resumos, anexos e bloco de notas.
+
+O .mra leva os registros e arquivos incorporados, mas não inclui contas locais,
+preferências ou rascunhos ainda não salvos como resumos. Por isso a cópia da
+pasta completa no Windows é uma proteção adicional importante.
+
+O QUE MUDOU
+- Bloco de notas independente dos resumos para ideias e lembretes rápidos.
+- Busca no título e conteúdo, fixação de notas e envio à Lixeira.
+- Salvamento automático ao editar e ao ocultar o aplicativo.
+- Notas são entidades normais: seguem no backup e na sincronização Wi-Fi.
+- Editor de resumos com folha branca, texto escuro e imagens incorporadas
+  mantidas em memória para evitar piscar durante a digitação.
+- Painel inicial e menu dão acesso direto às notas.
+- O BAT de GitHub aponta para github.com/rodolfojrrr/STUDIUM-PRO.
+
+COMPATIBILIDADE
+O banco continua na versão 3, o formato .mra permanece na versão 1 e o
+applicationId Android continua com.rodolfo.myroutineactive. A nova função usa
+a tabela entities existente; não apaga nem recria tabelas. Não inclua bancos,
+backups ou chaves privadas no ZIP enviado ao GitHub.

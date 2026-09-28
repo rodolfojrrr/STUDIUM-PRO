@@ -2,7 +2,7 @@
 setlocal EnableExtensions DisableDelayedExpansion
 title Studium SI - Enviar ao GitHub
 cd /d "%~dp0"
-set "REPO_URL=https://github.com/rodolfojrrr/MY-ROUTINE-ACTIVE.git"
+set "REPO_URL=https://github.com/rodolfojrrr/STUDIUM-PRO.git"
 set "COMMIT_MSG="
 set "NEW_REPO="
 
@@ -49,11 +49,11 @@ if errorlevel 1 goto :erro
 git diff --cached --quiet
 if not errorlevel 1 goto :sem_alteracoes
 
-set /p "COMMIT_MSG=Mensagem do commit [Studium SI v5.8.1 - recuperar banco Windows]: "
-if not defined COMMIT_MSG set "COMMIT_MSG=Studium SI v5.8.1 - recuperar banco Windows"
+set /p "COMMIT_MSG=Mensagem do commit [Studium SI v5.9.0 - notas e editor]: "
+if not defined COMMIT_MSG set "COMMIT_MSG=Studium SI v5.9.0 - notas e editor"
 if /I "%COMMIT_MSG:~0,4%"=="http" (
   echo A URL do repositorio ja esta configurada. Usando a mensagem padrao.
-  set "COMMIT_MSG=Studium SI v5.8.1 - recuperar banco Windows"
+  set "COMMIT_MSG=Studium SI v5.9.0 - notas e editor"
 )
 git commit -m "%COMMIT_MSG%"
 if errorlevel 1 goto :erro

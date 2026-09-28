@@ -39,6 +39,7 @@ void main() {
     expect(find.text('Studium SI'), findsOneWidget);
     expect(find.text('Metas e foco'), findsOneWidget);
     expect(find.text('Resumos'), findsWidgets);
+    expect(find.text('Bloco de notas'), findsOneWidget);
     expect(find.text('Kanban'), findsOneWidget);
     expect(find.text('Simulados'), findsOneWidget);
     expect(find.text('Faculdade'), findsOneWidget);

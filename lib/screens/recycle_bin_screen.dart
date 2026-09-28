@@ -210,6 +210,7 @@ String _typeLabel(String type) => switch (type) {
       EntityTypes.subject => 'Matéria',
       EntityTypes.studyContent => 'Conteúdo',
       EntityTypes.studyNote => 'Resumo',
+      EntityTypes.quickNote => 'Nota rápida',
       EntityTypes.studyQuestion => 'Questão',
       EntityTypes.flashcard => 'Flashcard',
       EntityTypes.exam => 'Avaliação',
@@ -224,6 +225,7 @@ String _typeLabel(String type) => switch (type) {
 
 IconData _iconFor(String type) => switch (type) {
       EntityTypes.studyNote => Icons.description_outlined,
+      EntityTypes.quickNote => Icons.sticky_note_2_outlined,
       EntityTypes.codeProject || EntityTypes.codeFile => Icons.code,
       EntityTypes.contentAsset => Icons.attach_file_rounded,
       EntityTypes.kanbanTask => Icons.view_kanban_outlined,
