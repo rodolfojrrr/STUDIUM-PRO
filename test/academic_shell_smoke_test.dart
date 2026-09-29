@@ -39,9 +39,6 @@ void main() {
     expect(find.text('Studium SI'), findsOneWidget);
     expect(find.text('Metas e foco'), findsOneWidget);
     expect(find.text('Resumos'), findsWidgets);
-    expect(find.text('Bloco de notas'), findsOneWidget);
-    expect(find.text('Kanban'), findsOneWidget);
-    expect(find.text('Simulados'), findsOneWidget);
     expect(find.text('Faculdade'), findsOneWidget);
     expect(find.text('Cursos'), findsOneWidget);
     expect(
@@ -53,7 +50,35 @@ void main() {
       lessThan(tester.getTopLeft(find.text('Metas e foco')).dy),
     );
 
-    await tester.tap(find.text('Faculdade'));
+    final sidebarList = find.byKey(const Key('academic-sidebar-destinations'));
+    final sidebar = find.descendant(
+      of: sidebarList,
+      matching: find.byType(Scrollable),
+    );
+    Finder item(String label) => find.descendant(
+          of: sidebarList,
+          matching: find.text(label),
+        );
+    await tester.scrollUntilVisible(
+      item('Bloco de notas'),
+      120,
+      scrollable: sidebar,
+    );
+    expect(item('Bloco de notas'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      item('Simulados'),
+      120,
+      scrollable: sidebar,
+    );
+    expect(item('Kanban'), findsOneWidget);
+    expect(item('Simulados'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      item('Faculdade'),
+      -150,
+      scrollable: sidebar,
+    );
+
+    await tester.tap(item('Faculdade'));
     await tester.pumpAndSettle();
     expect(find.text('Sua faculdade, organizada como pastas'), findsOneWidget);
 
